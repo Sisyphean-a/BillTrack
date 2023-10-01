@@ -29,9 +29,7 @@ class Main:
 
         # 初始化表格
         self.taskList = TaskList()
-        tableList = self.taskList.get_all_tasks()
-        for task in tableList:
-            task.tableAdd(self.ui.Table)
+        self.update_table_ui()
 
     def addTodo(self):
         Target = self.ui.ObjectEdit.text()
@@ -64,7 +62,10 @@ class Main:
     def update_table_ui(self):
         tableList = self.taskList.get_all_tasks()
         for task in tableList:
-            task.tableAdd(self.ui.Table)
+            if task.status == "new":
+                task.tableAdd(self.ui.Table)
+            else:
+                task.tableAdd(self.ui.Table_old)
 
     def update_text(self, object, new_text):
         object.setText(new_text)

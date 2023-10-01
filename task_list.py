@@ -42,7 +42,9 @@ class TaskList:
                 task_json["date_out"],
                 task_json["type"],
                 task_json["remark"],
+                # task_json["status"],
             )
+            task.set_status(task_json["status"])
             tasks.append(task)
         return tasks
 
@@ -60,6 +62,7 @@ class TaskList:
             "date_out": task.date_out,
             "type": task.type,
             "remark": task.remark,
+            "status": task.status,
         }
 
 

@@ -13,12 +13,15 @@ class Task:
         self.date_out = date_out
         self.type = type
         self.remark = remark
+        self.status = "new"
 
     def __repr__(self):
         return f"target={self.target},\nmoney={self.money}, \
             \ndate_in={self.date_in}, \ndate_out={self.date_out}, \
-            \ntype={self.type}, \nremark={self.remark}"
+            \ntype={self.type}, \nremark={self.remark},\nstatus={self.status}"
 
+    def set_status(self, status):
+        self.status = status
 
     def tableAdd(self, table):
         table.insertRow(0)

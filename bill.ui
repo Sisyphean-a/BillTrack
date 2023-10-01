@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>880</width>
+    <height>621</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>850</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>账单记录工具</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="3,1">
+   <item>
+    <widget class="QTableWidget" name="Table">
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/*表格的一种美化方式*/
+QHeaderView{
+    /*font-size:18px;*/
+    background:transparent;
+}
+QTableCornerButton::section{
+	background:rgb(126, 145, 176);
+}
+
+QHeaderView::section{
+    color:#FFFFFF;
+    background:rgb(126, 145, 176);
+    border:none;
+	border-left: 1px solid #333333;
+    text-align:center;
+    padding-left:2px;
+	padding-right:2px;
+}
+
+QTableWidget{
+    background:#FFFFFF;
+    border:none;
+	outline:none;
+    /*font-size:18px;*/
+    color:#666666;
+}
+
+QTableWidget::item{
+	border-left:1px solid #EEF1F7;
+    border-bottom:1px solid #EEF1F7;
+}
+
+QTableWidget::item::selected{
+    color:rgb(0, 0, 0);
+    background:#449EFF;
+}
+/* QScrollBar Vertical Style */
+QScrollBar::vertical{
+background:transparent;
+width:12px;
+border:none;
+}
+
+QScrollBar::add-line:vertical{
+background:none;
+border:none;
+}
+
+QScrollBar::sub-line:vertical{
+background:none;
+border:none;
+}
+
+QScrollBar::add-page:vertical{
+background:transparent;
+border:none;
+}
+
+QScrollBar::sub-page:vertical{
+background:transparent;
+border:none;
+}
+
+QScrollBar::handle:vertical{
+background: rgba(111, 134, 147, 100);
+border-radius:4px;
+
+}
+
+QScrollBar::handle:vertical:hover{
+background: rgba(111, 134, 147, 180);
+}
+
+QScrollBar::handle:vertical:pressed{
+background: rgba(111, 134, 147, 255);
+}
+
+/* QScrollBar Horizontal Style */
+QScrollBar::horizontal{
+background:transparent;
+height:12px;
+border:none;
+}
+
+QScrollBar::add-line:horizontal{
+background:none;
+border:none;
+}
+
+QScrollBar::sub-line:horizontal{
+background:none;
+border:none;
+}
+
+QScrollBar::add-page:horizontal{
+background:transparent;
+border:none;
+}
+
+QScrollBar::sub-page:horizontal{
+background:transparent;
+border:none;
+}
+
+QScrollBar::handle:horizontal{
+background: rgba(111, 134, 147, 100);
+border-radius:4px;
+
+}
+
+QScrollBar::handle:horizontal:hover{
+background: rgba(111, 134, 147, 180);
+}
+QScrollBar::handle:horizontal:pressed{
+background: rgba(111, 134, 147, 255);
+}
+</string>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::SolidLine</enum>
+     </property>
+     <column>
+      <property name="text">
+       <string notr="true">目标对象</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string notr="true">欠款金额</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string notr="true">入账日期</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string notr="true">出账日期</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string notr="true">欠款类型</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>备注</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="Right_layout" stretch="2,1,1">
+     <item>
+      <widget class="QGroupBox" name="Right_add">
+       <property name="minimumSize">
+        <size>
+         <width>210</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="title">
+        <string>添加</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,2">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>目标对象</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="ObjectEdit"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,2">
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>欠款金额</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="MoneyEdit"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="1,2">
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>入账日期</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDateEdit" name="InDateEdit">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="displayFormat">
+             <string>yyyy/MM/dd</string>
+            </property>
+            <property name="timeSpec">
+             <enum>Qt::UTC</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="1,2">
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>出账类型</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDateEdit" name="OutDateEdit">
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="displayFormat">
+             <string>yyyy/MM/dd</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,2">
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>欠款类型</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="TypeEdit">
+            <item>
+             <property name="text">
+              <string>花呗</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>借呗</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>网商贷</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>金星</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>彩陶坊</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>借款</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>其他</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="1,2">
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>备       注</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="RemarkEdit"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="AddTodoButton">
+          <property name="text">
+           <string>添加任务</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="Right_other">
+       <property name="title">
+        <string>其他</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QPushButton" name="DeleteTodoButton">
+          <property name="text">
+           <string>删除任务</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="UpdateTodoButton">
+          <property name="text">
+           <string>修改任务</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="FinishTodoButton">
+          <property name="text">
+           <string>完成任务</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="Right_message">
+       <property name="title">
+        <string>消息</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QLabel" name="MessageLabel">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

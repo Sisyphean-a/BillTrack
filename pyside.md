@@ -1,0 +1,9 @@
+| 组件类型       | 输入值获取方法 |
+| -------------- | -------------- |
+| QLineEdit      | text()         |
+| QTextEdit      | toPlainText()  |
+| QSpinBox       | value()        |
+| QDoubleSpinBox | value()        |
+| QDateEdit      | date()         |
+| QTimeEdit      | time()         |
+| QDateTimeEdit  | dateTime()     |

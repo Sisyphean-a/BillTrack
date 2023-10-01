@@ -1,0 +1,8 @@
+/*.json
+*.mp3
+__pycache__/*
+dist/
+build/
+main.spec
+.pytest_cache/
+.vscode/

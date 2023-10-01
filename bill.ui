@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>880</width>
+    <width>900</width>
     <height>621</height>
    </rect>
   </property>
@@ -21,12 +21,22 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="3,1">
    <item>
-    <widget class="QTableWidget" name="Table">
-     <property name="layoutDirection">
-      <enum>Qt::LeftToRight</enum>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
      </property>
-     <property name="styleSheet">
-      <string notr="true">/*表格的一种美化方式*/
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>待办</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QTableWidget" name="Table">
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/*表格的一种美化方式*/
 QHeaderView{
     /*font-size:18px;*/
     background:transparent;
@@ -143,46 +153,222 @@ QScrollBar::handle:horizontal:pressed{
 background: rgba(111, 134, 147, 255);
 }
 </string>
-     </property>
-     <property name="editTriggers">
-      <set>QAbstractItemView::NoEditTriggers</set>
-     </property>
-     <property name="selectionMode">
-      <enum>QAbstractItemView::SingleSelection</enum>
-     </property>
-     <property name="gridStyle">
-      <enum>Qt::SolidLine</enum>
-     </property>
-     <column>
-      <property name="text">
-       <string notr="true">目标对象</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string notr="true">欠款金额</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string notr="true">入账日期</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string notr="true">出账日期</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string notr="true">欠款类型</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>备注</string>
-      </property>
-     </column>
+         </property>
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::SingleSelection</enum>
+         </property>
+         <property name="gridStyle">
+          <enum>Qt::SolidLine</enum>
+         </property>
+         <column>
+          <property name="text">
+           <string notr="true">目标对象</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string notr="true">欠款金额</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string notr="true">入账日期</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string notr="true">出账日期</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string notr="true">欠款类型</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>备注</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>已办</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout_9">
+       <item>
+        <widget class="QTableWidget" name="Table_old">
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/*表格的一种美化方式*/
+QHeaderView{
+    /*font-size:18px;*/
+    background:transparent;
+}
+QTableCornerButton::section{
+	background:rgb(126, 145, 176);
+}
+
+QHeaderView::section{
+    color:#FFFFFF;
+    background:rgb(126, 145, 176);
+    border:none;
+	border-left: 1px solid #333333;
+    text-align:center;
+    padding-left:2px;
+	padding-right:2px;
+}
+
+QTableWidget{
+    background:#FFFFFF;
+    border:none;
+	outline:none;
+    /*font-size:18px;*/
+    color:#666666;
+}
+
+QTableWidget::item{
+	border-left:1px solid #EEF1F7;
+    border-bottom:1px solid #EEF1F7;
+}
+
+QTableWidget::item::selected{
+    color:rgb(0, 0, 0);
+    background:#449EFF;
+}
+/* QScrollBar Vertical Style */
+QScrollBar::vertical{
+background:transparent;
+width:12px;
+border:none;
+}
+
+QScrollBar::add-line:vertical{
+background:none;
+border:none;
+}
+
+QScrollBar::sub-line:vertical{
+background:none;
+border:none;
+}
+
+QScrollBar::add-page:vertical{
+background:transparent;
+border:none;
+}
+
+QScrollBar::sub-page:vertical{
+background:transparent;
+border:none;
+}
+
+QScrollBar::handle:vertical{
+background: rgba(111, 134, 147, 100);
+border-radius:4px;
+
+}
+
+QScrollBar::handle:vertical:hover{
+background: rgba(111, 134, 147, 180);
+}
+
+QScrollBar::handle:vertical:pressed{
+background: rgba(111, 134, 147, 255);
+}
+
+/* QScrollBar Horizontal Style */
+QScrollBar::horizontal{
+background:transparent;
+height:12px;
+border:none;
+}
+
+QScrollBar::add-line:horizontal{
+background:none;
+border:none;
+}
+
+QScrollBar::sub-line:horizontal{
+background:none;
+border:none;
+}
+
+QScrollBar::add-page:horizontal{
+background:transparent;
+border:none;
+}
+
+QScrollBar::sub-page:horizontal{
+background:transparent;
+border:none;
+}
+
+QScrollBar::handle:horizontal{
+background: rgba(111, 134, 147, 100);
+border-radius:4px;
+
+}
+
+QScrollBar::handle:horizontal:hover{
+background: rgba(111, 134, 147, 180);
+}
+QScrollBar::handle:horizontal:pressed{
+background: rgba(111, 134, 147, 255);
+}
+</string>
+         </property>
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::SingleSelection</enum>
+         </property>
+         <property name="gridStyle">
+          <enum>Qt::SolidLine</enum>
+         </property>
+         <column>
+          <property name="text">
+           <string notr="true">目标对象</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string notr="true">欠款金额</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string notr="true">入账日期</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string notr="true">出账日期</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string notr="true">欠款类型</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>备注</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
    <item>
@@ -359,9 +545,9 @@ background: rgba(111, 134, 147, 255);
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QPushButton" name="DeleteTodoButton">
+         <widget class="QPushButton" name="FinishTodoButton">
           <property name="text">
-           <string>删除任务</string>
+           <string>完成任务</string>
           </property>
          </widget>
         </item>
@@ -373,9 +559,9 @@ background: rgba(111, 134, 147, 255);
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="FinishTodoButton">
+         <widget class="QPushButton" name="OutputTodoButton">
           <property name="text">
-           <string>完成任务</string>
+           <string>导出表格</string>
           </property>
          </widget>
         </item>

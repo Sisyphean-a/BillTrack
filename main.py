@@ -16,6 +16,9 @@ class Main:
         self.ui.Table.horizontalHeader().setStretchLastSection(True)
         self.ui.Table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.ui.Table.setSortingEnabled(True)
+        self.ui.Table_old.horizontalHeader().setStretchLastSection(True)
+        self.ui.Table_old.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.ui.Table_old.setSortingEnabled(True)
 
         # 设置初始化时间为当前时间
         currentDate = QDate.currentDate()

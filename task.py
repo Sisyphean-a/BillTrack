@@ -1,12 +1,13 @@
-import tkinter as tk
+import time
 
-import ttkbootstrap as ttk
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QTableWidgetItem
 
 
 class Task:
     def __init__(self, target, money, date_in, date_out, type, remark=None):
+        time.sleep(0.001)
+        self.id = str(time.time())
         self.target = target
         self.money = money
         self.date_in = date_in
@@ -22,6 +23,9 @@ class Task:
 
     def set_status(self, status):
         self.status = status
+
+    def set_id(self, id):
+        self.id = id
 
     def tableAdd(self, table):
         table.insertRow(0)

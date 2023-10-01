@@ -42,9 +42,9 @@ class TaskList:
                 task_json["date_out"],
                 task_json["type"],
                 task_json["remark"],
-                # task_json["status"],
             )
             task.set_status(task_json["status"])
+            task.set_id(task_json["id"])
             tasks.append(task)
         return tasks
 
@@ -56,6 +56,7 @@ class TaskList:
 
     def to_json(self, task):
         return {
+            "id": task.id,
             "target": task.target,
             "money": task.money,
             "date_in": task.date_in,

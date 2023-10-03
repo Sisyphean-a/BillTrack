@@ -85,10 +85,11 @@ class Main:
 
     def OutputTodo(self):
         folder_name = QFileDialog.getExistingDirectory(self.ui, "选择你要保存的文件夹", "../")
-        self.update_text(self.ui.MessageLabel, "保存成功")
-        path = f"{folder_name}/output.xlsx"
-        # print(path)
-        self.taskList.export_json_to_excel(path)
+        if not folder_name == "":
+            self.update_text(self.ui.MessageLabel, "保存成功")
+            path = f"{folder_name}/output.xlsx"
+            # print(path)
+            self.taskList.export_json_to_excel(path)
 
     def update_table_ui(self):
         self.ui.Table.setRowCount(0)

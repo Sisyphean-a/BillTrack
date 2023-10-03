@@ -6,8 +6,9 @@ from PySide6.QtWidgets import QTableWidgetItem
 
 class Task:
     def __init__(self, target, money, date_in, date_out, type, remark=None):
-        time.sleep(0.001)
-        self.id = str(time.time())
+        time.sleep(0.0001)
+        current_milli_time = lambda: int(round(time.time() * 1000))
+        self.id = str(current_milli_time())
         self.target = target
         self.money = money
         self.date_in = date_in
@@ -36,6 +37,7 @@ class Task:
         table.setItem(0, 3, QTableWidgetItem(self.date_out))
         table.setItem(0, 4, QTableWidgetItem(self.type))
         table.setItem(0, 5, QTableWidgetItem(self.remark))
+        table.setItem(0, 6, QTableWidgetItem(self.id))
 
         # 设置文本居中
         for row in range(table.rowCount()):

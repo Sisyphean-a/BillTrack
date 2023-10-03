@@ -35,8 +35,8 @@ class Ui_Form(object):
         self.horizontalLayout_3 = QHBoxLayout(self.tab)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.Table = QTableWidget(self.tab)
-        if (self.Table.columnCount() < 6):
-            self.Table.setColumnCount(6)
+        if (self.Table.columnCount() < 7):
+            self.Table.setColumnCount(7)
         __qtablewidgetitem = QTableWidgetItem()
         __qtablewidgetitem.setText(u"\u76ee\u6807\u5bf9\u8c61");
         self.Table.setHorizontalHeaderItem(0, __qtablewidgetitem)
@@ -54,6 +54,8 @@ class Ui_Form(object):
         self.Table.setHorizontalHeaderItem(4, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
         self.Table.setHorizontalHeaderItem(5, __qtablewidgetitem5)
+        __qtablewidgetitem6 = QTableWidgetItem()
+        self.Table.setHorizontalHeaderItem(6, __qtablewidgetitem6)
         self.Table.setObjectName(u"Table")
         self.Table.setLayoutDirection(Qt.LeftToRight)
         self.Table.setStyleSheet(u"/*\u8868\u683c\u7684\u4e00\u79cd\u7f8e\u5316\u65b9\u5f0f*/\n"
@@ -187,25 +189,27 @@ class Ui_Form(object):
         self.horizontalLayout_9 = QHBoxLayout(self.tab_2)
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.Table_old = QTableWidget(self.tab_2)
-        if (self.Table_old.columnCount() < 6):
-            self.Table_old.setColumnCount(6)
-        __qtablewidgetitem6 = QTableWidgetItem()
-        __qtablewidgetitem6.setText(u"\u76ee\u6807\u5bf9\u8c61");
-        self.Table_old.setHorizontalHeaderItem(0, __qtablewidgetitem6)
+        if (self.Table_old.columnCount() < 7):
+            self.Table_old.setColumnCount(7)
         __qtablewidgetitem7 = QTableWidgetItem()
-        __qtablewidgetitem7.setText(u"\u6b20\u6b3e\u91d1\u989d");
-        self.Table_old.setHorizontalHeaderItem(1, __qtablewidgetitem7)
+        __qtablewidgetitem7.setText(u"\u76ee\u6807\u5bf9\u8c61");
+        self.Table_old.setHorizontalHeaderItem(0, __qtablewidgetitem7)
         __qtablewidgetitem8 = QTableWidgetItem()
-        __qtablewidgetitem8.setText(u"\u5165\u8d26\u65e5\u671f");
-        self.Table_old.setHorizontalHeaderItem(2, __qtablewidgetitem8)
+        __qtablewidgetitem8.setText(u"\u6b20\u6b3e\u91d1\u989d");
+        self.Table_old.setHorizontalHeaderItem(1, __qtablewidgetitem8)
         __qtablewidgetitem9 = QTableWidgetItem()
-        __qtablewidgetitem9.setText(u"\u51fa\u8d26\u65e5\u671f");
-        self.Table_old.setHorizontalHeaderItem(3, __qtablewidgetitem9)
+        __qtablewidgetitem9.setText(u"\u5165\u8d26\u65e5\u671f");
+        self.Table_old.setHorizontalHeaderItem(2, __qtablewidgetitem9)
         __qtablewidgetitem10 = QTableWidgetItem()
-        __qtablewidgetitem10.setText(u"\u6b20\u6b3e\u7c7b\u578b");
-        self.Table_old.setHorizontalHeaderItem(4, __qtablewidgetitem10)
+        __qtablewidgetitem10.setText(u"\u51fa\u8d26\u65e5\u671f");
+        self.Table_old.setHorizontalHeaderItem(3, __qtablewidgetitem10)
         __qtablewidgetitem11 = QTableWidgetItem()
-        self.Table_old.setHorizontalHeaderItem(5, __qtablewidgetitem11)
+        __qtablewidgetitem11.setText(u"\u6b20\u6b3e\u7c7b\u578b");
+        self.Table_old.setHorizontalHeaderItem(4, __qtablewidgetitem11)
+        __qtablewidgetitem12 = QTableWidgetItem()
+        self.Table_old.setHorizontalHeaderItem(5, __qtablewidgetitem12)
+        __qtablewidgetitem13 = QTableWidgetItem()
+        self.Table_old.setHorizontalHeaderItem(6, __qtablewidgetitem13)
         self.Table_old.setObjectName(u"Table_old")
         self.Table_old.setLayoutDirection(Qt.LeftToRight)
         self.Table_old.setStyleSheet(u"/*\u8868\u683c\u7684\u4e00\u79cd\u7f8e\u5316\u65b9\u5f0f*/\n"
@@ -525,9 +529,13 @@ class Ui_Form(object):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"\u8d26\u5355\u8bb0\u5f55\u5de5\u5177", None))
         ___qtablewidgetitem = self.Table.horizontalHeaderItem(5)
         ___qtablewidgetitem.setText(QCoreApplication.translate("Form", u"\u5907\u6ce8", None));
+        ___qtablewidgetitem1 = self.Table.horizontalHeaderItem(6)
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("Form", u"id", None));
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("Form", u"\u5f85\u529e", None))
-        ___qtablewidgetitem1 = self.Table_old.horizontalHeaderItem(5)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("Form", u"\u5907\u6ce8", None));
+        ___qtablewidgetitem2 = self.Table_old.horizontalHeaderItem(5)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("Form", u"\u5907\u6ce8", None));
+        ___qtablewidgetitem3 = self.Table_old.horizontalHeaderItem(6)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("Form", u"id", None));
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("Form", u"\u5df2\u529e", None))
         self.Right_add.setTitle(QCoreApplication.translate("Form", u"\u6dfb\u52a0", None))
         self.label.setText(QCoreApplication.translate("Form", u"\u76ee\u6807\u5bf9\u8c61", None))

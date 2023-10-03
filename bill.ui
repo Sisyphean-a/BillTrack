@@ -193,6 +193,11 @@ background: rgba(111, 134, 147, 255);
            <string>备注</string>
           </property>
          </column>
+         <column>
+          <property name="text">
+           <string>id</string>
+          </property>
+         </column>
         </widget>
        </item>
       </layout>
@@ -363,6 +368,11 @@ background: rgba(111, 134, 147, 255);
          <column>
           <property name="text">
            <string>备注</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>id</string>
           </property>
          </column>
         </widget>

@@ -1,6 +1,6 @@
 from PySide6.QtCore import QDate, Qt
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtWidgets import QAbstractItemView, QApplication
+from PySide6.QtWidgets import QAbstractItemView, QApplication, QMessageBox
 
 from task import Task
 from task_list import TaskList
@@ -66,17 +66,21 @@ class Main:
         self.update_text(self.ui.MessageLabel, repr(task))
 
     def finishTodo(self):
-        row = self.ui.Table.currentRow()
-        if not row == -1:
-            getId = self.ui.Table.item(row, 6).text()
-            self.update_text(self.ui.MessageLabel, getId)
-            task = self.taskList.get_task_by_id(getId)
-            print(task)
-            print()
-            task.set_status("old")
-            print(task)
-            self.taskList.update_task(task)
-        self.update_table_ui()
+        choice = QMessageBox.question(self.ui, "Are you sure", "您确认要执行该操作?")
+        if choice == QMessageBox.Yes:
+            row = self.ui.Table.currentRow()
+            if not row == -1:
+                getId = self.ui.Table.item(row, 6).text()
+                self.update_text(self.ui.MessageLabel, getId)
+                task = self.taskList.get_task_by_id(getId)
+                print(task)
+                print()
+                task.set_status("old")
+                print(task)
+                self.taskList.update_task(task)
+            self.update_table_ui()
+        elif choice == QMessageBox.No:
+            print("取消")
 
     def update_table_ui(self):
         self.ui.Table.setRowCount(0)

@@ -2,6 +2,7 @@ import json
 import os
 
 from task import Task
+import xlsxwriter
 
 
 class TaskList:
@@ -93,24 +94,46 @@ class TaskList:
         }
 
 
+def export_json_to_excel(json_data, excel_file_name):
+    # 将json数据转换为二维数组
+    data = [item for item in json_data]
+    # 获取表头
+    headers = data[0].keys()
+    # 创建excel文件
+    workbook = xlsxwriter.Workbook(excel_file_name)
+    # 创建工作表
+    worksheet = workbook.add_worksheet()
+    # 设置表头
+    for i, header in enumerate(headers):
+        worksheet.write(0, i, header)
+    # 写入数据
+    for i, row in enumerate(data):
+        print(row)
+        for j, value in enumerate(row.values()):
+            print(value)
+            worksheet.write(i + 1, j, value)
+    # 保存excel文件
+    workbook.close()
+
+
 if __name__ == "__main__":
     task_list = TaskList()
+
+    export_json_to_excel(task_list.tasks, "output.xlsx")
 
     # 添加任务
     # task_list.add_task(Task("学习 Python", "1000", "2023-08-01", "2023-08-31", "学习"))
     # task_list.add_task(Task("健身", "2000", "2023-08-01", "2023-08-31", "健身"))
     # task_list.add_task(Task("旅行", "3000", "2023-08-01", "2023-08-31", "旅行"))
 
-    # 获取所有任务
-    print(task_list.get_all_tasks())
-    print("\n\n")
-    task = task_list.get_task_by_id("1696297727776")
-    task.set_status("old")
-    task_list.update_task(task)
-    print(task)
+    # # 获取所有任务
+    # print(task_list.get_all_tasks())
+    # print("\n\n")
 
-    # 获取指定任务
-    # print(task_list.get_task_by_id(1))
-
-    # 保存数据
-    # task_list.save()
+    # # 获取指定任务
+    # task = task_list.get_task_by_id("1696297727776")
+    # # 修改数据
+    # task.set_status("old")
+    # # 更新数据
+    # task_list.update_task(task)
+    # print(task)

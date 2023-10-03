@@ -6,3 +6,4 @@ build/
 main.spec
 .pytest_cache/
 .vscode/
+*.xlsx

@@ -1,6 +1,6 @@
 from PySide6.QtCore import QDate, Qt
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtWidgets import QAbstractItemView, QApplication, QMessageBox
+from PySide6.QtWidgets import QAbstractItemView, QApplication, QMessageBox, QFileDialog
 
 from task import Task
 from task_list import TaskList
@@ -12,6 +12,7 @@ class Main:
         self.ui = QUiLoader().load("bill.ui")
         self.ui.AddTodoButton.clicked.connect(self.addTodo)
         self.ui.FinishTodoButton.clicked.connect(self.finishTodo)
+        self.ui.OutputTodoButton.clicked.connect(self.OutputTodo)
 
         # 设置表格相关属性，不可编辑、整行选中、排序功能、隐藏id列
         self.ui.Table.horizontalHeader().setStretchLastSection(True)
@@ -81,6 +82,13 @@ class Main:
             self.update_table_ui()
         elif choice == QMessageBox.No:
             print("取消")
+
+    def OutputTodo(self):
+        folder_name = QFileDialog.getExistingDirectory(self.ui, "选择你要保存的文件夹", "../")
+        self.update_text(self.ui.MessageLabel, "保存成功")
+        path = f"{folder_name}/output.xlsx"
+        # print(path)
+        self.taskList.export_json_to_excel(path)
 
     def update_table_ui(self):
         self.ui.Table.setRowCount(0)

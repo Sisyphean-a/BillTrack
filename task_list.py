@@ -93,33 +93,30 @@ class TaskList:
             "status": task.status,
         }
 
-
-def export_json_to_excel(json_data, excel_file_name):
-    # 将json数据转换为二维数组
-    data = [item for item in json_data]
-    # 获取表头
-    headers = data[0].keys()
-    # 创建excel文件
-    workbook = xlsxwriter.Workbook(excel_file_name)
-    # 创建工作表
-    worksheet = workbook.add_worksheet()
-    # 设置表头
-    for i, header in enumerate(headers):
-        worksheet.write(0, i, header)
-    # 写入数据
-    for i, row in enumerate(data):
-        print(row)
-        for j, value in enumerate(row.values()):
-            print(value)
-            worksheet.write(i + 1, j, value)
-    # 保存excel文件
-    workbook.close()
+    def export_json_to_excel(self, excel_file_name):
+        # 将json数据转换为二维数组
+        data = [item for item in self.tasks]
+        # 获取表头
+        headers = data[0].keys()
+        # 创建excel文件
+        workbook = xlsxwriter.Workbook(excel_file_name)
+        # 创建工作表
+        worksheet = workbook.add_worksheet()
+        # 设置表头
+        for i, header in enumerate(headers):
+            worksheet.write(0, i, header)
+        # 写入数据
+        for i, row in enumerate(data):
+            for j, value in enumerate(row.values()):
+                worksheet.write(i + 1, j, value)
+        # 保存excel文件
+        workbook.close()
 
 
 if __name__ == "__main__":
     task_list = TaskList()
 
-    export_json_to_excel(task_list.tasks, "output.xlsx")
+    task_list.export_json_to_excel("output.xlsx")
 
     # 添加任务
     # task_list.add_task(Task("学习 Python", "1000", "2023-08-01", "2023-08-31", "学习"))

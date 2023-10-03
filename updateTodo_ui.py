@@ -143,10 +143,10 @@ class Ui_Form(object):
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_5)
 
-        self.AddTodoButton = QPushButton(Form)
-        self.AddTodoButton.setObjectName(u"AddTodoButton")
+        self.UpdateButton = QPushButton(Form)
+        self.UpdateButton.setObjectName(u"UpdateButton")
 
-        self.verticalLayout_2.addWidget(self.AddTodoButton)
+        self.verticalLayout_2.addWidget(self.UpdateButton)
 
 
         self.retranslateUi(Form)
@@ -172,6 +172,6 @@ class Ui_Form(object):
         self.TypeEdit.setItemText(6, QCoreApplication.translate("Form", u"\u5176\u4ed6", None))
 
         self.label_5.setText(QCoreApplication.translate("Form", u"\u5907       \u6ce8", None))
-        self.AddTodoButton.setText(QCoreApplication.translate("Form", u"\u5b8c\u6210\u4fee\u6539", None))
+        self.UpdateButton.setText(QCoreApplication.translate("Form", u"\u5b8c\u6210\u4fee\u6539", None))
     # retranslateUi
 

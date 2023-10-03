@@ -17,6 +17,7 @@ class Main:
         self.ui.FinishTodoButton.clicked.connect(self.finishTodo)
         self.ui.OutputTodoButton.clicked.connect(self.OutputTodo)
         self.ui.UpdateTodoButton.clicked.connect(self.UpdateTodo)
+        self.updateUI.UpdateButton.clicked.connect(self.UpdateTodoMini)
 
         # 设置表格相关属性，不可编辑、整行选中、排序功能、隐藏id列
         self.ui.Table.horizontalHeader().setStretchLastSection(True)
@@ -34,6 +35,10 @@ class Main:
         self.ui.InDateEdit.setCalendarPopup(True)
         self.ui.OutDateEdit.setDate(currentDate)
         self.ui.OutDateEdit.setCalendarPopup(True)
+        self.updateUI.InDateEdit.setDate(currentDate)
+        self.updateUI.InDateEdit.setCalendarPopup(True)
+        self.updateUI.OutDateEdit.setDate(currentDate)
+        self.updateUI.OutDateEdit.setCalendarPopup(True)
 
         # 初始化表格
         self.taskList = TaskList()
@@ -104,13 +109,53 @@ class Main:
             getId = self.ui.Table.item(row, 6).text()
             self.update_text(self.ui.MessageLabel, getId)
             task = self.taskList.get_task_by_id(getId)
-            
+
+            # 回显数据
+            self.update_id = task.id
+            self.update_status = task.status
+            Target = self.updateUI.ObjectEdit.setText(task.target)
+            Money = self.updateUI.MoneyEdit.setText(task.money)
+            DateIn = self.updateUI.InDateEdit.setDate(QDate.fromString(task.date_in))
+            DateOut = self.updateUI.OutDateEdit.setDate(QDate.fromString(task.date_out))
+            Type = self.updateUI.TypeEdit.setCurrentText(task.type)
+            Remark = self.updateUI.RemarkEdit.setText(task.remark)
+
             self.taskList.update_task(task)
         else:
             QMessageBox.warning(self.ui, "认真的吗？", "你未选中任何内容")
         self.update_table_ui()
 
+    def UpdateTodoMini(self):
+        # 从信息栏中获取信息
+        Target = self.updateUI.ObjectEdit.text()
+        Money = self.updateUI.MoneyEdit.text()
+        DateIn = self.updateUI.InDateEdit.text()
+        DateOut = self.updateUI.OutDateEdit.text()
+        Type = self.updateUI.TypeEdit.currentText()
+        Remark = self.updateUI.RemarkEdit.text()
+
+        # 对信息栏进行判断
+        if Target == "" or Money == "" or DateIn == "" or DateOut == "" or Type == "":
+            self.update_text(self.ui.MessageLabel, "账单消息不完整\n添加失败")
+            return
+
+        task = Task(
+            target=Target,
+            money=Money,
+            date_in=DateIn,
+            date_out=DateOut,
+            type=Type,
+            remark=Remark,
+        )
         
+        task.set_id(self.update_id)
+        task.set_status(self.update_status)
+        self.update_text(self.ui.MessageLabel, repr(task))
+
+        # 更新数据刷新页面
+        self.taskList.update_task(task)
+        self.update_table_ui()
+        self.updateUI.close()
 
     def update_table_ui(self):
         self.ui.Table.setRowCount(0)

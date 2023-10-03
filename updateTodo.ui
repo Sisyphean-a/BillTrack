@@ -158,7 +158,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QPushButton" name="AddTodoButton">
+    <widget class="QPushButton" name="UpdateButton">
      <property name="text">
       <string>完成修改</string>
      </property>

@@ -10,9 +10,13 @@ class Main:
     def __init__(self):
         # 从文件中加载UI定义
         self.ui = QUiLoader().load("bill.ui")
+        self.updateUI = QUiLoader().load("updateTodo.ui")
+
+        # 设置钩子函数
         self.ui.AddTodoButton.clicked.connect(self.addTodo)
         self.ui.FinishTodoButton.clicked.connect(self.finishTodo)
         self.ui.OutputTodoButton.clicked.connect(self.OutputTodo)
+        self.ui.UpdateTodoButton.clicked.connect(self.UpdateTodo)
 
         # 设置表格相关属性，不可编辑、整行选中、排序功能、隐藏id列
         self.ui.Table.horizontalHeader().setStretchLastSection(True)
@@ -69,15 +73,16 @@ class Main:
     def finishTodo(self):
         choice = QMessageBox.question(self.ui, "Are you sure", "您确认要执行该操作?")
         if choice == QMessageBox.Yes:
+            # 获取选中的目标行索引
             row = self.ui.Table.currentRow()
             if not row == -1:
+                # 获取对应的id
                 getId = self.ui.Table.item(row, 6).text()
                 self.update_text(self.ui.MessageLabel, getId)
+                # 获取对应的task对象并更改数据
                 task = self.taskList.get_task_by_id(getId)
-                print(task)
-                print()
                 task.set_status("old")
-                print(task)
+                # 更新数据库
                 self.taskList.update_task(task)
             self.update_table_ui()
         elif choice == QMessageBox.No:
@@ -90,6 +95,22 @@ class Main:
             path = f"{folder_name}/output.xlsx"
             # print(path)
             self.taskList.export_json_to_excel(path)
+
+    def UpdateTodo(self):
+        row = self.ui.Table.currentRow()
+        if not row == -1:
+            self.updateUI.show()
+            # 获取目标task
+            getId = self.ui.Table.item(row, 6).text()
+            self.update_text(self.ui.MessageLabel, getId)
+            task = self.taskList.get_task_by_id(getId)
+            
+            self.taskList.update_task(task)
+        else:
+            QMessageBox.warning(self.ui, "认真的吗？", "你未选中任何内容")
+        self.update_table_ui()
+
+        
 
     def update_table_ui(self):
         self.ui.Table.setRowCount(0)

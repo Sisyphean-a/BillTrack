@@ -1,6 +1,11 @@
 from PySide6.QtCore import QDate, Qt
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtWidgets import QAbstractItemView, QApplication, QMessageBox, QFileDialog
+from PySide6.QtWidgets import (
+    QAbstractItemView,
+    QApplication,
+    QMessageBox,
+    QFileDialog,
+)
 
 from task import Task
 from task_list import TaskList
@@ -147,7 +152,7 @@ class Main:
             type=Type,
             remark=Remark,
         )
-        
+
         task.set_id(self.update_id)
         task.set_status(self.update_status)
         self.update_text(self.ui.MessageLabel, repr(task))

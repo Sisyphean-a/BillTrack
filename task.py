@@ -45,3 +45,12 @@ class Task:
                 item = table.item(row, column)
                 if item is not None:
                     item.setTextAlignment(Qt.AlignCenter)
+
+        # 判断money是否大于100000
+        if int(table.item(0, 1).text()) > 100000:
+            # 设置当前行的背景颜色
+            table.item(0, 1).setBackground(QtGui.QColor(255, 0, 0))
+            # 设置当前行的字体颜色
+            table.item(0, 1).setForeground(QtGui.QColor(255, 0, 0))
+            # 设置当前行的字体加粗
+            table.item(0, 1).setFontWeight(QtGui.QFont.Bold)

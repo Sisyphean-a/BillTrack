@@ -1,5 +1,7 @@
+import datetime
 import time
 
+from PySide6 import QtGui
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QTableWidgetItem
 
@@ -46,11 +48,29 @@ class Task:
                 if item is not None:
                     item.setTextAlignment(Qt.AlignCenter)
 
+        # 获取money值和date值以及今天的时间以及时间差
+        money = int(table.item(0, 1).text())
+        date = table.item(0, 3).text()
+        date = datetime.datetime.strptime(date, "%Y/%m/%d")
+        today = datetime.datetime.today()
+        diff = (today - date).days
+        print(diff)
+
+        if diff <= 3:
+            for colume in range(table.columnCount()):
+                # 设置当前行的背景颜色
+                table.item(0, colume).setBackground(QtGui.QColor(255, 100, 97))
+                # 设置当前行的字体颜色
+                table.item(0, colume).setForeground(QtGui.QColor(255, 255, 255))
+                # 设置当前行的字体加粗
+                # table.item(0, 1).setFontWeight(QtGui.QFont.Bold)
+
         # 判断money是否大于100000
-        if int(table.item(0, 1).text()) > 100000:
-            # 设置当前行的背景颜色
-            table.item(0, 1).setBackground(QtGui.QColor(255, 0, 0))
-            # 设置当前行的字体颜色
-            table.item(0, 1).setForeground(QtGui.QColor(255, 0, 0))
-            # 设置当前行的字体加粗
-            table.item(0, 1).setFontWeight(QtGui.QFont.Bold)
+        if money >= 100000 and diff <= 30:
+            for colume in range(table.columnCount()):
+                # 设置当前行的背景颜色
+                table.item(0, colume).setBackground(QtGui.QColor(255, 0, 0))
+                # 设置当前行的字体颜色
+                table.item(0, colume).setForeground(QtGui.QColor(255, 255, 255))
+                # 设置当前行的字体加粗
+                # table.item(0, 1).setFontWeight(QtGui.QFont.Bold)

@@ -1,11 +1,6 @@
 from PySide6.QtCore import QDate, Qt
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtWidgets import (
-    QAbstractItemView,
-    QApplication,
-    QMessageBox,
-    QFileDialog,
-)
+from PySide6.QtWidgets import QAbstractItemView, QApplication, QFileDialog, QMessageBox
 
 from task import Task
 from task_list import TaskList

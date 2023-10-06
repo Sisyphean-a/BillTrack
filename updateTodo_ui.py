@@ -117,6 +117,7 @@ class Ui_Form(object):
         self.TypeEdit.addItem("")
         self.TypeEdit.addItem("")
         self.TypeEdit.addItem("")
+        self.TypeEdit.addItem("")
         self.TypeEdit.setObjectName(u"TypeEdit")
 
         self.horizontalLayout_4.addWidget(self.TypeEdit)
@@ -160,7 +161,7 @@ class Ui_Form(object):
         self.label_2.setText(QCoreApplication.translate("Form", u"\u6b20\u6b3e\u91d1\u989d", None))
         self.label_6.setText(QCoreApplication.translate("Form", u"\u5165\u8d26\u65e5\u671f", None))
         self.InDateEdit.setDisplayFormat(QCoreApplication.translate("Form", u"yyyy/MM/dd", None))
-        self.label_7.setText(QCoreApplication.translate("Form", u"\u51fa\u8d26\u7c7b\u578b", None))
+        self.label_7.setText(QCoreApplication.translate("Form", u"\u51fa\u8d26\u65e5\u671f", None))
         self.OutDateEdit.setDisplayFormat(QCoreApplication.translate("Form", u"yyyy/MM/dd", None))
         self.label_3.setText(QCoreApplication.translate("Form", u"\u6b20\u6b3e\u7c7b\u578b", None))
         self.TypeEdit.setItemText(0, QCoreApplication.translate("Form", u"\u82b1\u5457", None))
@@ -169,7 +170,8 @@ class Ui_Form(object):
         self.TypeEdit.setItemText(3, QCoreApplication.translate("Form", u"\u91d1\u661f", None))
         self.TypeEdit.setItemText(4, QCoreApplication.translate("Form", u"\u5f69\u9676\u574a", None))
         self.TypeEdit.setItemText(5, QCoreApplication.translate("Form", u"\u501f\u6b3e", None))
-        self.TypeEdit.setItemText(6, QCoreApplication.translate("Form", u"\u5176\u4ed6", None))
+        self.TypeEdit.setItemText(6, QCoreApplication.translate("Form", u"\u8d37\u6b3e", None))
+        self.TypeEdit.setItemText(7, QCoreApplication.translate("Form", u"\u5176\u4ed6", None))
 
         self.label_5.setText(QCoreApplication.translate("Form", u"\u5907       \u6ce8", None))
         self.UpdateButton.setText(QCoreApplication.translate("Form", u"\u5b8c\u6210\u4fee\u6539", None))

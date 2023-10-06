@@ -53,6 +53,14 @@ class Main:
         Type = self.ui.TypeEdit.currentText()
         Remark = self.ui.RemarkEdit.text()
 
+        # 对时间进行判断
+        dateIn = datetime.datetime.strptime(DateIn, "%Y/%m/%d")
+        dateOut = datetime.datetime.strptime(DateOut, "%Y/%m/%d")
+        diff = (dateOut - dateIn).days
+        if diff < 0:
+            self.update_text(self.ui.MessageLabel, "入账日期不应该大于出账日期\n添加失败")
+            return
+
         # 对信息栏进行判断
         if Target == "" or Money == "" or DateIn == "" or DateOut == "" or Type == "":
             self.update_text(self.ui.MessageLabel, "账单消息不完整\n添加失败")

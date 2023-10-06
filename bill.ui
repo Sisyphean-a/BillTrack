@@ -63,7 +63,6 @@ QTableWidget{
     /*font-size:18px;*/
     color:#666666;
 }
-
 /* 表格中选中的单元格 */
 QTableWidget::item::selected{
     color:rgb(0, 0, 0);
@@ -456,7 +455,7 @@ background: rgba(111, 134, 147, 255);
           <item>
            <widget class="QLabel" name="label_7">
             <property name="text">
-             <string>出账类型</string>
+             <string>出账日期</string>
             </property>
            </widget>
           </item>
@@ -511,6 +510,11 @@ background: rgba(111, 134, 147, 255);
             <item>
              <property name="text">
               <string>借款</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>贷款</string>
              </property>
             </item>
             <item>

@@ -53,7 +53,7 @@ class Task:
         date = table.item(0, 3).text()
         date = datetime.datetime.strptime(date, "%Y/%m/%d")
         today = datetime.datetime.today()
-        diff = (today - date).days
+        diff = (date - today).days
         print(diff)
 
         if diff <= 3:

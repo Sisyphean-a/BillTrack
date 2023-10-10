@@ -1,5 +1,5 @@
-import datetime
 import time
+from datetime import datetime, timedelta
 
 from PySide6 import QtGui
 from PySide6.QtCore import Qt
@@ -30,6 +30,22 @@ class Task:
     def set_id(self, id):
         self.id = id
 
+    def new_time(self):
+        # 获取当前日期
+        current_date = datetime.now()
+        # 将日期对象格式化为字符串并返回
+        self.date_in = current_date.strftime("%Y/%m/%d")
+
+        # 将日期字符串转换为datetime对象
+        date = datetime.strptime(self.date_out, "%Y/%m/%d")
+        # 计算下个月的日期
+        next_month = date.replace(month=date.month + 1)
+        # 处理年份和月份的进位
+        if next_month.month == 1:
+            next_month = next_month.replace(year=next_month.year + 1)
+        # 将日期对象转换为字符串并返回
+        self.date_out = next_month.strftime("%Y/%m/%d")
+
     def tableAdd(self, table):
         table.insertRow(0)
 
@@ -51,8 +67,8 @@ class Task:
         # 获取money值和date值以及今天的时间以及时间差
         money = int(table.item(0, 1).text())
         date = table.item(0, 3).text()
-        date = datetime.datetime.strptime(date, "%Y/%m/%d")
-        today = datetime.datetime.today()
+        date = datetime.strptime(date, "%Y/%m/%d")
+        today = datetime.today()
         diff = (date - today).days
 
         if diff <= 3:

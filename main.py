@@ -96,10 +96,16 @@ class Main:
                 self.update_text(self.ui.MessageLabel, getId)
                 # 获取对应的task对象并更改数据
                 task = self.taskList.get_task_by_id(getId)
+                task_new = self.taskList.get_new_task(getId)
                 task.set_status("old")
                 # 更新数据库
                 self.taskList.update_task(task)
             self.update_table_ui()
+            cont = QMessageBox.question(self.ui, "嗯哼?", "下个月是否需要继续还款?")
+            if cont == QMessageBox.Yes:
+                self.taskList.add_task(task_new)
+                self.update_table_ui()
+                pass
         elif choice == QMessageBox.No:
             print("取消")
 

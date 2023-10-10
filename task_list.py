@@ -1,5 +1,6 @@
 import json
 import os
+import time
 
 from task import Task
 import xlsxwriter
@@ -80,6 +81,14 @@ class TaskList:
                 task.set_id(task_json["id"])
                 return task
         return None
+
+    def get_new_task(self,id):
+        task = self.get_task_by_id(id)
+        # time.sleep(0.0001)
+        # current_milli_time = lambda: int(round(time.time() * 1000))
+        # task.set_id = str(current_milli_time())
+        task.new_time()    
+        return task
 
     def to_json(self, task):
         return {

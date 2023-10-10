@@ -54,7 +54,6 @@ class Task:
         date = datetime.datetime.strptime(date, "%Y/%m/%d")
         today = datetime.datetime.today()
         diff = (date - today).days
-        print(diff)
 
         if diff <= 3:
             for colume in range(table.columnCount()):

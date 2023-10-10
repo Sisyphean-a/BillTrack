@@ -1,3 +1,5 @@
+import datetime
+
 from PySide6.QtCore import QDate, Qt
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtWidgets import QAbstractItemView, QApplication, QFileDialog, QMessageBox
@@ -121,12 +123,12 @@ class Main:
             # 回显数据
             self.update_id = task.id
             self.update_status = task.status
-            Target = self.updateUI.ObjectEdit.setText(task.target)
-            Money = self.updateUI.MoneyEdit.setText(task.money)
-            DateIn = self.updateUI.InDateEdit.setDate(QDate.fromString(task.date_in))
-            DateOut = self.updateUI.OutDateEdit.setDate(QDate.fromString(task.date_out))
-            Type = self.updateUI.TypeEdit.setCurrentText(task.type)
-            Remark = self.updateUI.RemarkEdit.setText(task.remark)
+            self.updateUI.ObjectEdit.setText(task.target)
+            self.updateUI.MoneyEdit.setText(task.money)
+            self.updateUI.InDateEdit.setDate(self.create_qdate(task.date_in))
+            self.updateUI.OutDateEdit.setDate(self.create_qdate(task.date_out))
+            self.updateUI.TypeEdit.setCurrentText(task.type)
+            self.updateUI.RemarkEdit.setText(task.remark)
 
             self.taskList.update_task(task)
         else:
@@ -177,6 +179,14 @@ class Main:
 
     def update_text(self, object, new_text):
         object.setText(new_text)
+
+    def create_qdate(self, date_old):
+        date_parts = date_old.split("/")
+        year = int(date_parts[0])
+        month = int(date_parts[1])
+        day = int(date_parts[2])
+        date = QDate(year, month, day)
+        return date
 
 
 app = QApplication([])

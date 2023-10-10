@@ -89,3 +89,8 @@ class Task:
                 table.item(0, colume).setForeground(QtGui.QColor(255, 255, 255))
                 # 设置当前行的字体加粗
                 # table.item(0, 1).setFontWeight(QtGui.QFont.Bold)
+            
+        if table.objectName() == "Table_old":
+            for colume in range(table.columnCount()):
+                # 设置当前行的字体颜色
+                table.item(0, colume).setForeground(QtGui.QColor(0, 0, 0))            

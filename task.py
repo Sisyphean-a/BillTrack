@@ -49,13 +49,19 @@ class Task:
     def tableAdd(self, table):
         table.insertRow(0)
 
-        table.setItem(0, 0, QTableWidgetItem(self.target))
-        table.setItem(0, 1, QTableWidgetItem(self.money))
-        table.setItem(0, 2, QTableWidgetItem(self.date_in))
-        table.setItem(0, 3, QTableWidgetItem(self.date_out))
-        table.setItem(0, 4, QTableWidgetItem(self.type))
-        table.setItem(0, 5, QTableWidgetItem(self.remark))
-        table.setItem(0, 6, QTableWidgetItem(self.id))
+        # 创建一个列表，按顺序存储表格的列信息，一个元素对应一列
+        items = [
+            self.target,
+            self.money,
+            self.date_in,
+            self.date_out,
+            self.type,
+            self.remark,
+            self.id,
+        ]
+
+        for i in range(len(items)):
+            table.setItem(0, i, QTableWidgetItem(items[i]))
 
         # 设置文本居中
         for row in range(table.rowCount()):
@@ -89,8 +95,8 @@ class Task:
                 table.item(0, colume).setForeground(QtGui.QColor(255, 255, 255))
                 # 设置当前行的字体加粗
                 # table.item(0, 1).setFontWeight(QtGui.QFont.Bold)
-            
+
         if table.objectName() == "Table_old":
             for colume in range(table.columnCount()):
                 # 设置当前行的字体颜色
-                table.item(0, colume).setForeground(QtGui.QColor(0, 0, 0))            
+                table.item(0, colume).setForeground(QtGui.QColor(0, 0, 0))

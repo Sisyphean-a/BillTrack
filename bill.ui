@@ -32,6 +32,11 @@
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <widget class="QTableWidget" name="Table">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
          <property name="layoutDirection">
           <enum>Qt::LeftToRight</enum>
          </property>
@@ -164,35 +169,70 @@ background: rgba(111, 134, 147, 255);
           <property name="text">
            <string notr="true">目标对象</string>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
          </column>
          <column>
           <property name="text">
            <string notr="true">欠款金额</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
           </property>
          </column>
          <column>
           <property name="text">
            <string notr="true">入账日期</string>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
          </column>
          <column>
           <property name="text">
            <string notr="true">出账日期</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
           </property>
          </column>
          <column>
           <property name="text">
            <string notr="true">欠款类型</string>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
          </column>
          <column>
           <property name="text">
            <string>备注</string>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
          </column>
          <column>
           <property name="text">
            <string>id</string>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
           </property>
          </column>
         </widget>

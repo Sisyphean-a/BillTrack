@@ -37,26 +37,36 @@ class Ui_Form(object):
         self.Table = QTableWidget(self.tab)
         if (self.Table.columnCount() < 7):
             self.Table.setColumnCount(7)
+        font = QFont()
+        font.setPointSize(10)
         __qtablewidgetitem = QTableWidgetItem()
         __qtablewidgetitem.setText(u"\u76ee\u6807\u5bf9\u8c61");
+        __qtablewidgetitem.setFont(font);
         self.Table.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
         __qtablewidgetitem1.setText(u"\u6b20\u6b3e\u91d1\u989d");
+        __qtablewidgetitem1.setFont(font);
         self.Table.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         __qtablewidgetitem2 = QTableWidgetItem()
         __qtablewidgetitem2.setText(u"\u5165\u8d26\u65e5\u671f");
+        __qtablewidgetitem2.setFont(font);
         self.Table.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         __qtablewidgetitem3 = QTableWidgetItem()
         __qtablewidgetitem3.setText(u"\u51fa\u8d26\u65e5\u671f");
+        __qtablewidgetitem3.setFont(font);
         self.Table.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         __qtablewidgetitem4 = QTableWidgetItem()
         __qtablewidgetitem4.setText(u"\u6b20\u6b3e\u7c7b\u578b");
+        __qtablewidgetitem4.setFont(font);
         self.Table.setHorizontalHeaderItem(4, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
+        __qtablewidgetitem5.setFont(font);
         self.Table.setHorizontalHeaderItem(5, __qtablewidgetitem5)
         __qtablewidgetitem6 = QTableWidgetItem()
+        __qtablewidgetitem6.setFont(font);
         self.Table.setHorizontalHeaderItem(6, __qtablewidgetitem6)
         self.Table.setObjectName(u"Table")
+        self.Table.setFont(font)
         self.Table.setLayoutDirection(Qt.LeftToRight)
         self.Table.setStyleSheet(u"/*\u8868\u683c\u7684\u4e00\u79cd\u7f8e\u5316\u65b9\u5f0f*/\n"
 "QHeaderView{\n"

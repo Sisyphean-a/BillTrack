@@ -48,6 +48,9 @@ class Task:
 
     def tableAdd(self, table):
         table.insertRow(0)
+        font = QtGui.QFont()
+        font.setBold(True)
+        # font.setPointSize(11)
 
         # 创建一个列表，按顺序存储表格的列信息，一个元素对应一列
         items = [
@@ -84,7 +87,7 @@ class Task:
                 # 设置当前行的字体颜色
                 table.item(0, colume).setForeground(QtGui.QColor(255, 255, 255))
                 # 设置当前行的字体加粗
-                # table.item(0, 1).setFontWeight(QtGui.QFont.Bold)
+                # table.item(0, colume).setFont(font)
 
         # 判断money是否大于100000
         if money >= 100000 and diff <= 30:
@@ -94,7 +97,7 @@ class Task:
                 # 设置当前行的字体颜色
                 table.item(0, colume).setForeground(QtGui.QColor(255, 255, 255))
                 # 设置当前行的字体加粗
-                # table.item(0, 1).setFontWeight(QtGui.QFont.Bold)
+                table.item(0, colume).setFont(font)
 
         if table.objectName() == "Table_old":
             for colume in range(table.columnCount()):
